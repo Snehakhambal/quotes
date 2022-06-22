@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row mb-3">
+    <div class="col" >
+      <input
+        type="search"
+        class="form-control mb-3 "
+        name="name"
+        [value]="EnterName"
+        #name
+        id="btn"
+         />
+        <button
+        type="submit"
+        class="btn  mx-2 "
+        [disabled]="hide == false"
+        (click)="getQuoteBySearch(name.value)" >
+        Search
+      </button>
+      <button type="submit" class="btn  mx-2 my-3 " (click)="getQuotes()">
+        All Quotes
+      </button>
+    </div>
+  </div>
+
+  <div class="row color" *ngIf="hide === true">
+    <ol class="list-group" *ngFor="let value of dataList; let i = index">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start mb-3 p-3" >
+        <div class="col-lg-10  ">
+          <div class="fw-bold">
+            {{ value.quote }}
+          </div>
+        </div>
+        <span
+          class="p-2 color btn col-lg-2 "
+          (click)="getQuoteBySearch(value.author)" >{{ value.author }}</span >
+      </li>
+    </ol>
+  </div>
+  <div class="row color" *ngIf="hide === false">
+    <ol class="list-group" *ngFor="let value of dataList2; let i = index">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start mb-3 p-lg-3" >
+        <div class="col-lg-10 ">
+          <div class="fw-bold">
+            {{ value.quote }}
+          </div>
+        </div>
+        <button
+          class="p-2 color btn col-lg-2  "
+            [disabled]="hide == false"
+          (click)="getQuoteBySearch(name.value)"
+          >{{ value.author }}</button>
+      </li>
+    </ol>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.card{
+    width: 90%;
+    margin-top: 6rem;
+    font-size: 2rem;
+    font-weight: 900;
+  margin-right: 1rem;
+   border: none;
+   transition: all 1s ease;
+    
+}
+.card em{
+    margin-top: 1rem;
+    font-size: 10px;
+}
+
+@media (max-width:690px) {
+    .card{
+        font-size: 2rem;
+        font-weight: 200;
+       
+    }
+   .card-title{
+        font-size :0.8rem;
+        font-weight: 700;
+     margin-left:-5px;
+      padding  :8px 30px;
+        }
+         
+        
+}
+ 

@@ -1,0 +1,43 @@
+<div class="container-fluid ">
+  <div class="row pt-4 ">
+      <nav  class="d-flex justify-content-end  align-items-end">
+      <span 
+      class="col col-lg-1 "
+      id="home"
+      (click)="toggle('home')">Home</span>
+      <span
+        class="col col-lg-1  "
+        id="author"
+        (click)="toggle('author')">Author</span >
+      <span
+        class="col col-lg-1  "
+        id="quote"
+        (click)="toggle('quote')" >Quote</span>
+      </nav>
+    </div>
+ 
+ <div class="row mt-lg-4" *ngIf="ids !== 'author' && ids !== 'quote' && ids!=='quotes'  " >
+      <!-- home section -->
+      <div class="card mx-auto text-center"  >
+        <span class="card-title">
+          {{data}}
+          </span>
+        <em>__Quote for the day</em>
+      </div>
+   </div>
+ <div class="row">
+   <div class="col mt-3">
+      <!-- quote list section -->
+      <app-qoutes
+        *ngIf="ids === 'quote'"
+        [EnterName]="displayAuthorName"></app-qoutes>
+    </div>
+     <!-- author section -->
+      <app-author-list
+        *ngIf="ids === 'author'"
+        (authorName)="authorName($event)"
+        (ids)="idsReturn($event)"></app-author-list>
+    </div>
+  </div>
+ 
+ 
